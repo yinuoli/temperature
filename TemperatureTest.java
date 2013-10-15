@@ -27,7 +27,9 @@ public class TemperatureTest {
 		test_KelvinToFahrenheit();
 		test_KelvinToFahrenheit2();
 		test_CelsiusToFahrenheit();
+		test_CelsiusToFahrenheit2();
 		test_FahrenheitToCelsius();
+		test_FahrenheitToCelsius2();
 		
 	}
    
@@ -127,6 +129,17 @@ public class TemperatureTest {
 		assertTrue(T.getValue()==temp * 9.0/5.0 - 459.67);	
 	}
 	
+	//According to Abosulte 0 value for K, C cannot be smaller than -273.15celcius
+	public static void test_CelsiusToFahrenheit2(){
+		System.out.println("Test if temperature returns Fahrenheit...");
+		Temperature T=new Temperature(-283.15, Temperature.Units.CELSIUS);
+		assertTrue(T.getUnits()==Temperature.Units.CELSIUS);
+		double temp = T.convertToKelvin(-283.15);
+		T.changeUnits(Temperature.Units.FAHRENHEIT);
+		assertTrue(T.getUnits()==Temperature.Units.FAHRENHEIT);
+		assertTrue(T.getValue()==temp * 9.0/5.0 - 459.67);	
+	}
+	
 	public static void test_FahrenheitToCelsius(){
 		System.out.println("Test if temperature returns Celsius...");
 		Temperature T=new Temperature(20, Temperature.Units.FAHRENHEIT);
@@ -136,7 +149,16 @@ public class TemperatureTest {
 		assertTrue(T.getUnits()==Temperature.Units.CELSIUS);
 		assertTrue(T.getValue()==temp-273.15);	
 	}
-	
+	//The value of Fahrenheit cannot be smaller than -463.27F
+	public static void test_FahrenheitToCelsius2(){
+		System.out.println("Test if temperature returns Celsius...");
+		Temperature T=new Temperature(-500, Temperature.Units.FAHRENHEIT);
+		assertTrue(T.getUnits()==Temperature.Units.FAHRENHEIT);
+		double temp = T.convertToKelvin(-500);
+		T.changeUnits(Temperature.Units.CELSIUS);
+		assertTrue(T.getUnits()==Temperature.Units.CELSIUS);
+		assertTrue(T.getValue()==temp-273.15);	
+	}
 	
 }
 	
