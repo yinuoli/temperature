@@ -47,6 +47,9 @@ public class Temperature {
   public Temperature (Temperature temperature) {
       this.valueInKelvin = temperature.valueInKelvin;
       this.units = temperature.units;
+       if(valueInKelvin<0){
+    	  System.out.println("Error, the value of Kelvin cannot be smaller than 0K.");
+      }
   }
 
   /** Convert a {@code Temperature} value from  {@code Units} to Kelvin
