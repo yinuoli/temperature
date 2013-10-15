@@ -6,7 +6,10 @@
 
 //choosing random data to test the validity of the program
 //because random data represents all potential risks for the values are random
-
+//for the test methods, I randmomly chose data that calcuate the values for Kelvin greater than 0k
+//for the test2 methods, I randomly chose data that calculate the values for kelvin smaller than 0K.
+//In test2 cases, an error message will be shown on the screen.
+//Thus, even though the calculation can still be executed, an error message will be appeared. 
 
 import org.junit.* ;
 import static org.junit.Assert.* ;
